@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+{% if page.url == "/" %}
+<link rel="stylesheet" href="{{ '/assets/css/homepage.css' | relative_url }}">
+{% endif %}
+
+<div class="homepage-title-decor">
+    <span class="decor left"></span>
+    <h1 class="homepage-title">My Character Gallery</h1>
+    <span class="decor right"></span>
+</div>
+
+<div class="homepage-grid">
+    <!-- Card 1 -->
+    <a href="/oc-grid.html" class="home-card-wrapper" data-universe="Strength Seeker" data-filter="Strength Seeker">
+        <div class="home-card"></div>
+        <div class="frame"></div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="/oc-grid.html" class="home-card-wrapper" data-universe="Progenies" data-filter="Progenies">
+        <div class="home-card"></div>
+        <div class="frame"></div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="/oc-grid.html" class="home-card-wrapper" data-universe="The Long Midnight" data-filter="The Long Midnight">
+        <div class="home-card"></div>
+        <div class="frame"></div>
+    </a>
+
+    <!-- Card 4 (Terraria AU / Work) -->
+    <a href="/oc/misc-terraria-au/" class="home-card-wrapper work-wrapper" data-universe="Terraria AU">
+        <div class="home-card"></div>
+        <div class="frame"></div>
+    </a>
+
+    <!-- Card 5 (ALL OCS) -->
+    <a href="/oc-grid.html" class="home-card-wrapper all-ocs-wrapper" data-filter="all">
+        <div class="home-card all-ocs">All Characters ></div>
+        <div class="frame"></div>
+    </a>
+
+</div>
+
+<script>
+    document.querySelectorAll('.home-card-wrapper[data-filter]').forEach(link => {
+        link.addEventListener('click', () => {
+            sessionStorage.setItem('presetFilter', link.dataset.filter);
+        });
+    });
+</script>
